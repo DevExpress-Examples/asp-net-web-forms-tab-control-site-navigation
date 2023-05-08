@@ -1,26 +1,56 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128565431/13.1.5%2B)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E1308)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-<!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
-
-* [Default.aspx](./CS/WebSite14/Default.aspx)
-* [Default.aspx.cs](./CS/WebSite14/Default.aspx.cs)
-* [MasterPage.master](./CS/WebSite14/MasterPage.master) (VB: [MasterPage.master.vb](./VB/WebSite14/MasterPage.master.vb))
-* [MasterPage.master.cs](./CS/WebSite14/MasterPage.master.cs) (VB: [MasterPage.master.vb](./VB/WebSite14/MasterPage.master.vb))
-* [Page2.aspx](./CS/WebSite14/Page2.aspx) (VB: [Page2.aspx](./VB/WebSite14/Page2.aspx))
-* [Page2.aspx.cs](./CS/WebSite14/Page2.aspx.cs) (VB: [Page2.aspx.vb](./VB/WebSite14/Page2.aspx.vb))
-<!-- default file list end -->
-# How to use an ASPxTabControl for site navigation
+# Tab Control for ASP.NET Web Forms - How to use a tab control for site navigation
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/e1308/)**
 <!-- run online end -->
 
+This example demonstrates how to bind a tab control to a sitemap file and use ContentPlaceHolder objects to navigate through multiple content pages. 
 
-<p>This sample demonstrates how to use an ASPxTabControl and ContentPlaceHolder for site navigation. When a tab is clicked, a new page is loaded into a place holder. This approach can be used to emulate a dynamic PageControl.</p>
+## Overview
 
-<br/>
+Create a [tab control](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxTabControl) and bind it to a sitemap file to navigate through multiple pages. Set the control's [NavigateUrlField](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxTabControl.NavigateUrlField) property to `Url`.
+
+```aspx
+<dx:ASPxTabControl ID="tcDemos" runat="server" NavigateUrlField="Url" TextField="Name" ClientInstanceName = "tcDemos"
+    DataSourceID="XmlDataSource1" OnTabDataBound="tcDemos_TabDataBound" EnableClientSideAPI="True">
+    <!-- ... -->
+</dx:ASPxTabControl>
+<asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/SiteMap.xml" XPath="//SitePage" />
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+```
+
+```xml
+<SiteMap>
+    <SitePage Name="Page1" Url="~/Default.aspx" />
+    <SitePage Name="Page2" Url="~/Page2.aspx" />
+</SiteMap>
+```
+
+Use [ContentPlaceHolder](https://learn.microsoft.com/en-us/dotnet/api/system.web.ui.webcontrols.contentplaceholder?view=netframework-4.8.1) objects to create content pages. When a user clicks a tab, a content page is loaded into a place holder.
+
+```aspx
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <dx:ASPxPanel ID="ASPxPanel1" runat="server" Height="100%" Width="100%" BackColor="Indigo">
+        <PanelCollection>
+            <dx:PanelContent runat="server">
+                <dx:ASPxLabel runat="server" ID = "Page1Label" Text = "PAGE1" ForeColor="White" />
+            </dx:PanelContent>
+        </PanelCollection>
+    </dx:ASPxPanel>
+</asp:Content>
+```
+
+You can use this approach to create a dynamic [page control](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxPageControl).
 
 
+## Files to Review
+
+* [Default.aspx](./CS/WebSite14/Default.aspx)
+* [SiteMap.xml](./CS/WebSite14/SiteMap.xml)
+* [MasterPage.master](./CS/WebSite14/MasterPage.master) (VB: [MasterPage.master.vb](./VB/WebSite14/MasterPage.master.vb))
+* [MasterPage.master.cs](./CS/WebSite14/MasterPage.master.cs) (VB: [MasterPage.master.vb](./VB/WebSite14/MasterPage.master.vb))
+* [Page2.aspx](./CS/WebSite14/Page2.aspx) (VB: [Page2.aspx](./VB/WebSite14/Page2.aspx))
+
+## Documentation
+
+* [Tab Control](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxTabControl)
+* [Tab Control vs Page Control](https://docs.devexpress.com/AspNet/14806/components/site-navigation-and-layout/page-control-and-tab-control/concepts/tab-control-vs-page-control)
