@@ -4,9 +4,6 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 # Tab Control for ASP.NET Web Forms - How to use a tab control for site navigation
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128565431/)**
-<!-- run online end -->
 
 This example demonstrates how to bind a tab control to a sitemap file and use ContentPlaceHolder objects to navigate through multiple content pages. 
 
