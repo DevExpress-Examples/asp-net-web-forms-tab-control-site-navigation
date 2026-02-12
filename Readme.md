@@ -58,7 +58,7 @@ You can use this approach to create a dynamic [page control](https://docs.devexp
 * [Tab Control](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxTabControl)
 * [Tab Control vs Page Control](https://docs.devexpress.com/AspNet/14806/components/site-navigation-and-layout/page-control-and-tab-control/concepts/tab-control-vs-page-control)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-tab-control-site-navigation&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-tab-control-site-navigation&~~~was_helpful=no)
 
